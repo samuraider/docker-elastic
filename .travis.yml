@@ -4,7 +4,9 @@ services:
   - docker
 
 script:
-  - docker pull docker.elastic.co/elasticsearch/elasticsearch:5.0.0
+  - docker pull docker.elastic.co/elasticsearch/elasticsearch:5.0.0 docker.elastic.co/logstash/logstash:5.0.0 docker.elastic.co/kibana/kibana:5.0.0
   - docker tag docker.elastic.co/elasticsearch/elasticsearch:5.0.0 jbuxndfulfff/elasticsearch:5.0.0
+  - docker tag docker.elastic.co/logstash/logstash:5.0.0 jbuxndfulfff/logstash:5.0.0
+  - docker tag docker.elastic.co/kibana/kibana:5.0.0 jbuxndfulfff/kibana:5.0.0
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push jbuxndfulfff/elasticsearch:5.0.0
+  - docker push jbuxndfulfff/elasticsearch:5.0.0 jbuxndfulfff/logstash:5.0.0 jbuxndfulfff/kibana:5.0.0
